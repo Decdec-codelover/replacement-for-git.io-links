@@ -1,0 +1,44 @@
+name: 🔗 Short or long Link Request
+description: Request a new short or long link to be added to this repository.
+title: "[Link Request]: "
+labels: ["link-request", "pending-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for wanting to add a link! Please fill out the form below. I will personally check it for safety before adding it.
+
+  - type: input
+    id: original_url
+    attributes:
+      label: Target URL
+      description: What is the long destination URL you want to shorten? (e.g., https://github.com)
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: input
+    id: desired_name
+    attributes:
+      label: Desired HTML File Name
+      description: What do you want the short name to be? (Do not include .html)
+      placeholder: my-cool-project
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Link Description
+      description: Briefly explain what this link points to so I can verify its safety.
+      placeholder: This link points to the source code of my open-source project...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety_agreement
+    attributes:
+      label: Safety & Trust Check
+      options:
+        - label: I confirm this link does not contain malware, spam, phishing, or unsafe content.
+          required: true
